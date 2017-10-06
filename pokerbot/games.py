@@ -13,6 +13,14 @@ class Game:
         return "<Game ({} players)>".format(len(self._players))
 
 
+    def players(self):
+        """Returns the :py:class:`.Player` objects in this game.
+
+        :rtype: ``tuple``"""
+
+        return tuple(self._players)
+
+
     def add_player(self, player):
         """Adds a :py:class:`.Player` to the game.
 

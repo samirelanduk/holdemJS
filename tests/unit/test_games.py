@@ -19,6 +19,14 @@ class GameReprTests(TestCase):
         self.assertEqual(str(game), "<Game (4 players)>")
 
 
+class GamePlayersTests(TestCase):
+
+    def test_can_get_players(self):
+        game = Game()
+        game._players = [1, 5, 2, 5]
+        self.assertEqual(game.players(), (1, 5, 2, 5))
+
+
 
 class GamePlayerAdditionTests(TestCase):
 
