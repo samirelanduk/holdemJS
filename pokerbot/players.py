@@ -35,3 +35,11 @@ class Player:
             if not isinstance(name, str):
                 raise TypeError("name '{}' is not a str".format(name))
             self._name = name
+
+
+    def money(self):
+        """Returns the money the Player has.
+
+        :rtype: ``int``"""
+
+        return self._money

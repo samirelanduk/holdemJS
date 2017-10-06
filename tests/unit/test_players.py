@@ -36,7 +36,7 @@ class PlayerReprTests(TestCase):
 
 
 
-class VariableNameTests(TestCase):
+class PlayerNameTests(TestCase):
 
     def test_can_get_player_name(self):
         player = Player("Jo")
@@ -53,3 +53,11 @@ class VariableNameTests(TestCase):
         player = Player("Jo")
         with self.assertRaises(TypeError):
             player.name(100)
+
+
+
+class PlayerMoneyTests(TestCase):
+
+    def test_can_get_player_money(self):
+        player = Player("Jo", money=100)
+        self.assertIs(player._money, player.money())
