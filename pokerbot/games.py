@@ -18,7 +18,15 @@ class Game:
 
         :param Player player: the player to add.
         :raises TypeError: if the player is not a :py:class:`.Player`."""
-        
+
         if not isinstance(player, Player):
             raise TypeError("{} is not a Player".format(player))
         self._players.append(player)
+
+
+    def remove_player(self, player):
+        """Removes a :py:class:`.Player` from the game.
+
+        :param Player player: the player to add."""
+
+        self._players.remove(player)

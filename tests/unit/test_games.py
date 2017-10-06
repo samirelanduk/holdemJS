@@ -33,3 +33,16 @@ class GamePlayerAdditionTests(TestCase):
         game = Game()
         with self.assertRaises(TypeError):
             game.add_player("player")
+
+
+
+class GamePlayerRemovalTests(TestCase):
+
+    def test_can_remove_players(self):
+        player1, player2, player3 = Mock(), Mock(), Mock()
+        game = Game()
+        game._players = [player1, player2, player3]
+        game.remove_player(player2)
+        self.assertEqual(game._players, [player1, player3])
+        game.remove_player(player1)
+        self.assertEqual(game._players, [player3])
