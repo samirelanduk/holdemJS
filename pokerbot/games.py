@@ -5,3 +5,7 @@ class Game:
 
     def __init__(self):
         self._players = []
+
+
+    def __repr__(self):
+        return "<Game ({} players)>".format(len(self._players))
