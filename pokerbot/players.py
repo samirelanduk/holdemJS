@@ -16,3 +16,7 @@ class Player:
         self._name = name
         self._money = money
         self._cards = []
+
+
+    def __repr__(self):
+        return "<Player '{}' ({})>".format(self._name, self._money)

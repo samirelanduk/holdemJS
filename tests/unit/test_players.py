@@ -1,7 +1,7 @@
 from unittest import TestCase
 from pokerbot.players import Player
 
-class GameCreationTests(TestCase):
+class PlayerCreationTests(TestCase):
 
     def test_can_create_player(self):
         player = Player("Jo")
@@ -25,3 +25,11 @@ class GameCreationTests(TestCase):
     def test_player_money_must_be_int(self):
         with self.assertRaises(TypeError):
             Player("Jo", money="grand")
+
+
+
+class PlayerReprTests(TestCase):
+
+    def test_player_repr(self):
+        player = Player("Jo", money=200)
+        self.assertEqual(str(player), "<Player 'Jo' (200)>")
