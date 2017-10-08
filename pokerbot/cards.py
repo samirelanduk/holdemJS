@@ -32,3 +32,7 @@ class Deck:
 
     def __repr__(self):
         return "<Deck ({} cards)>".format(len(self._cards))
+
+
+    def __getitem__(self, index):
+        return self._cards[index]

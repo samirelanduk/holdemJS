@@ -20,3 +20,12 @@ class DeckReprTests(TestCase):
     def test_deck_repr(self):
         deck = Deck()
         self.assertEqual(str(deck), "<Deck (52 cards)>")
+
+
+
+class DeckIndexingTests(TestCase):
+
+    def test_deck_index(self):
+        deck = Deck()
+        for n in range(52):
+            self.assertIs(deck[n], deck._cards[n])
