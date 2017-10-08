@@ -19,6 +19,37 @@ class Card:
         self._suit = suit
 
 
+    def __repr__(self):
+        return "<Card ({})>".format(self.name())
+
+
+    def rank(self):
+        """Returns the card's rank as a number (2 being 2, Jack being 12, Ace
+        being 14).
+
+        :rtype: ``int``"""
+
+        return self._rank
+
+
+    def suit(self):
+        """Returns the card's suit as a unicode character.
+
+        :rtype: ``str``"""
+
+        return self._suit
+
+
+    def name(self):
+        """Returns the card's name.
+
+        :rtype: ``str``"""
+
+        rank = self._rank
+        rank = str(rank) if 2 <= rank <= 10 else ["J", "Q", "K", "A"][rank - 11]
+        return rank + self._suit
+
+
 
 class Deck:
     """Represents a deck of cards. Deck will be unshuffled initially."""

@@ -10,11 +10,11 @@ class PokerTests(TestCase):
         john = pokerbot.Player("John", 1000)
 
         deck = pokerbot.Deck()
-        self.assertEqual(deck[0].name(), "2♤")
-        self.assertEqual(deck[-1].name(), "A♧")
+        self.assertEqual(deck[0].name(), "2♠")
+        self.assertEqual(deck[-1].name(), "A♣")
         deck.shuffle()
         # 1 in 2704 chance of this next line failing randomly
-        self.assertTrue(deck[0].name() != "2♤" or deck[-1].name() != "A♧")
+        self.assertTrue(deck[0].name() != "2♠" or deck[-1].name() != "A♣")
 
         game = pokerbot.Game()
         for player in [matt, mark, luke, john]:
