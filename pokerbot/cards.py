@@ -1,5 +1,7 @@
 """This module contains the Deck and Card classes."""
 
+import random
+
 class Card:
     """Represents a card.
 
@@ -67,3 +69,9 @@ class Deck:
 
     def __getitem__(self, index):
         return self._cards[index]
+
+
+    def shuffle(self):
+        """Randomises the order of cards in the deck."""
+
+        random.shuffle(self._cards)

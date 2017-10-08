@@ -29,3 +29,13 @@ class DeckIndexingTests(TestCase):
         deck = Deck()
         for n in range(52):
             self.assertIs(deck[n], deck._cards[n])
+
+
+
+class DeckShuffleTests(TestCase):
+
+    @patch("random.shuffle")
+    def test_can_shuffle_cards(self, mock_shuffle):
+        deck = Deck()
+        deck.shuffle()
+        mock_shuffle.assert_called_with(deck._cards)
