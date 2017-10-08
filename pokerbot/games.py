@@ -1,16 +1,30 @@
 """This module contains the Game class."""
 
 from .players import Player
+from .cards import Deck
 
 class Game:
-    """Represents a game of Poker, and tracks its state."""
+    """Represents a game of Poker, and tracks its state.
 
-    def __init__(self):
+    :param Deck deck: The deck of cards to use."""
+
+    def __init__(self, deck):
+        if not isinstance(deck, Deck):
+            raise TypeError(f"{deck} is not a Deck")
+        self._deck = deck
         self._players = []
 
 
     def __repr__(self):
         return "<Game ({} players)>".format(len(self._players))
+
+
+    def deck(self):
+        """Returns the Game's :py:class:`.Deck` of cards.
+
+        :rtype: ``Deck``"""
+        
+        return self._deck
 
 
     def players(self):

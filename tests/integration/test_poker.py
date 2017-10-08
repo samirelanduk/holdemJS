@@ -16,7 +16,8 @@ class PokerTests(TestCase):
         # 1 in 2704 chance of this next line failing randomly
         self.assertTrue(deck[0].name() != "2♠" or deck[-1].name() != "A♣")
 
-        game = pokerbot.Game()
+        game = pokerbot.Game(deck)
+        self.assertIs(game.deck(), deck)
         for player in [matt, mark, luke, john]:
             game.add_player(player)
         self.assertEqual(game.players(), (matt, mark, luke, john))
