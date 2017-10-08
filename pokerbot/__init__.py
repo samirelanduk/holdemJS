@@ -3,3 +3,4 @@ __version__ = "0.1.0"
 
 from .games import Game
 from .players import Player
+from .cards import Deck

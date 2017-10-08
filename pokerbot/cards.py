@@ -17,3 +17,18 @@ class Card:
             raise ValueError("{suit} is not a valid suit")
         self._rank = rank
         self._suit = suit
+
+
+
+class Deck:
+    """Represents a deck of cards. Deck will be unshuffled initially."""
+
+    def __init__(self):
+        self._cards = []
+        for rank in range(2, 15):
+            for suit in ["♠", "♥", "♦", "♣"]:
+                self._cards.append(Card(rank, suit))
+
+
+    def __repr__(self):
+        return "<Deck ({} cards)>".format(len(self._cards))
