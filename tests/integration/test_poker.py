@@ -21,3 +21,7 @@ class PokerTests(TestCase):
         for player in [matt, mark, luke, john]:
             game.add_player(player)
         self.assertEqual(game.players(), (matt, mark, luke, john))
+
+        self.assertIsNone(game.dealer())
+        game.assign_dealer()
+        self.assertIn(game.dealer(), [matt, mark, luke, john])

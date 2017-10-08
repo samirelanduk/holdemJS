@@ -16,6 +16,7 @@ class GameCreationTests(GameTest):
         game = Game(self.deck)
         self.assertIs(game._deck, self.deck)
         self.assertEqual(game._players, [])
+        self.assertIsNone(game._dealer)
 
 
     def test_deck_must_be_deck(self):
@@ -76,3 +77,11 @@ class GamePlayerRemovalTests(GameTest):
         self.assertEqual(game._players, [player1, player3])
         game.remove_player(player1)
         self.assertEqual(game._players, [player3])
+
+
+
+class GameDealerTests(GameTest):
+
+    def test_game_dealer(self):
+        game = Game(self.deck)
+        self.assertIs(game._dealer, game.dealer())

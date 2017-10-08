@@ -13,6 +13,7 @@ class Game:
             raise TypeError(f"{deck} is not a Deck")
         self._deck = deck
         self._players = []
+        self._dealer = None
 
 
     def __repr__(self):
@@ -23,7 +24,7 @@ class Game:
         """Returns the Game's :py:class:`.Deck` of cards.
 
         :rtype: ``Deck``"""
-        
+
         return self._deck
 
 
@@ -52,3 +53,11 @@ class Game:
         :param Player player: the player to add."""
 
         self._players.remove(player)
+
+
+    def dealer(self):
+        """Returns the :py:class:`.Player` who is currently the dealer.
+
+        :rtype: ``Player``"""
+        
+        return self._dealer
