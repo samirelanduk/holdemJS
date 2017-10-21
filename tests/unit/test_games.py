@@ -85,3 +85,20 @@ class GameDealerTests(GameTest):
     def test_game_dealer(self):
         game = Game(self.deck)
         self.assertIs(game._dealer, game.dealer())
+
+
+
+class GameDealerAssigningTests(GameTest):
+
+    @patch("random.choice")
+    def test_game_dealer_picking(self, mock_choice):
+        game = Game(self.deck)
+        player1, player2, player3 = Mock(), Mock(), Mock()
+        game._players = [player1, player2, player3]
+        mock_choice.return_value = player2
+        self.assertIsNone(game._dealer)
+        game.assign_dealer()
+        mock_choice.assert_called_with([player1, player2, player3])
+        self.assertIs(game._dealer, player2)
+
+

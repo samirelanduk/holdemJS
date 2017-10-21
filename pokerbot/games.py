@@ -1,5 +1,6 @@
 """This module contains the Game class."""
 
+import random
 from .players import Player
 from .cards import Deck
 
@@ -61,3 +62,9 @@ class Game:
         :rtype: ``Player``"""
         
         return self._dealer
+
+
+    def assign_dealer(self):
+        """Picks a random :py:class:`.Player` to be the dealer."""
+        
+        self._dealer = random.choice(self._players)
