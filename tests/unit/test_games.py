@@ -17,6 +17,8 @@ class GameCreationTests(GameTest):
         self.assertIs(game._deck, self.deck)
         self.assertEqual(game._players, [])
         self.assertIsNone(game._dealer)
+        self.assertEqual(game._small_blind, 0)
+        self.assertEqual(game._big_blind, 0)
 
 
     def test_deck_must_be_deck(self):
@@ -100,5 +102,33 @@ class GameDealerAssigningTests(GameTest):
         game.assign_dealer()
         mock_choice.assert_called_with([player1, player2, player3])
         self.assertIs(game._dealer, player2)
+
+
+
+class GameSmallBlindTests(GameTest):
+
+    def test_game_small_blind(self):
+        game = Game(self.deck)
+        game._small_blind = 9
+        self.assertIs(game._small_blind, game.small_blind())
+
+
+
+class GameBigBlindTests(GameTest):
+
+    def test_game_small_blind(self):
+        game = Game(self.deck)
+        game._big_blind = 9
+        self.assertIs(game._big_blind, game.big_blind())
+
+
+
+class GameBlindsTests(GameTest):
+
+    def test_can_set_blinds(self):
+        game = Game(self.deck)
+        game.set_blinds(60, 120)
+        self.assertEqual(game._small_blind, 60)
+        self.assertEqual(game._big_blind, 120)
 
 
