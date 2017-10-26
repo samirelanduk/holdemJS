@@ -1,9 +1,1 @@
-__pycache__
-*.pyc
 .DS_Store
-build
-_static
-_templates
-dist
-*.egg-info
-*env
