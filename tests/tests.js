@@ -18,3 +18,10 @@ QUnit.test("Card rank validation test", function( assert ) {
         card = new Card("C", 15);
     })
 });
+
+
+
+QUnit.test("Deck creation test", function( assert ) {
+    deck = new Deck();
+    assert.equal(deck.cards.length, 52);
+});

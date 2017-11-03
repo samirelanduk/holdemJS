@@ -1,14 +1,6 @@
 var HOLDEM = true;
 var VERSION = 0.1;
 
-var deck = [];
-for (var rank = 1; rank <= 13; rank++) {
-  for (var i = 0; i <= 3; i++) {
-    deck.push([rank, ["H", "D", "S", "C"][i]]);
-  }
-}
-console.log(deck);
-
 function Card(suit, rank) {
     if (!(["S", "D", "H", "C"].includes(suit))) {
         throw "Suit must be S or D or H or C"
@@ -18,4 +10,24 @@ function Card(suit, rank) {
     }
     this.suit = suit;
     this.rank = rank;
+}
+
+function Deck() {
+    this.cards = [];
+    for (var rank = 2; rank <= 14; rank++) {
+        for (var i = 0; i <= 3; i++) {
+            this.cards.push(new Card(["H", "D", "S", "C"][i], rank));
+        }
+    }
+
+    this.shuffle = function() {
+        for (var i = this.cards.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = this.cards[i];
+            this.cards[i] = this.cards[j];
+            this.cards[j] = temp;
+        }
+    }
+
+
 }
