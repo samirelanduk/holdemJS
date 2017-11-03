@@ -39,4 +39,10 @@ function Player(name) {
 function Game(deck) {
     this.deck = deck;
     this.players = [];
+    this.dealer = null;
+
+    this.assignDealer = function() {
+        var i = Math.floor(Math.random() * (this.players.length));
+        this.dealer = this.players[i];
+    }
 }
