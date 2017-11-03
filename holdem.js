@@ -31,10 +31,11 @@ function Deck() {
 }
 
 
-function Player(name) {
+function Player(name, chips) {
     this.name = name;
     this.cards = [];
     this.game = null;
+    this.chips = chips;
 
     this.joinGame = function(game) {
         game.players.push(this);
@@ -49,6 +50,11 @@ function Player(name) {
             return this.game.players[playerIndex + 1];
         }
     }
+
+    this.bet = function(amount) {
+        this.chips -= amount;
+        this.game.pot += amount;
+    }
 }
 
 function Game(deck, sb, bb) {
@@ -57,6 +63,7 @@ function Game(deck, sb, bb) {
     this.bb = bb;
     this.players = [];
     this.dealer = null;
+    this.pot = 0;
 
     this.assignDealer = function() {
         var i = Math.floor(Math.random() * (this.players.length));
@@ -69,6 +76,12 @@ function Game(deck, sb, bb) {
 
     this.bigBlind = function() {
         return this.smallBlind().nextPlayer();
+    }
+
+    this.dealCards = function() {
+        for (var p = 0; p < this.players.length; p++) {
+            this.players[p].cards.push(this.deck.cards.pop())
+        }
     }
     
 }
