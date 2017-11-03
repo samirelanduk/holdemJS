@@ -28,6 +28,15 @@ function Deck() {
             this.cards[j] = temp;
         }
     }
+}
 
 
+function Player(name) {
+    this.name = name;
+    this.cards = [];
+}
+
+function Game(deck) {
+    this.deck = deck;
+    this.players = [];
 }
